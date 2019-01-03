@@ -18,9 +18,4 @@ describe "Darksky Service", type: :service do
     expect(@results[:longitude]).to eq(@location[:lng])
   end
 
-      # it "is used to create api for our app" do
-      #   visit '/api/v1/forecast?location=denver,co'
-      #
-      #   expect(response).to be_successfull
-      # end
 end
