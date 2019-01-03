@@ -12,6 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/coverage
+
 
 # Ignore uploaded files in development
 /storage/*
@@ -28,3 +30,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore VCR cassettes
+/spec/cassettes
+/notes.rb
