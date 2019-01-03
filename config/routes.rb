@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :forecasts, only: :index
+      resources :forecast, only: :index do
+      end
+      resources :users, only: :create do
+      end 
     end
   end
 
