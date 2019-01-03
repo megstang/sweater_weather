@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem 'bcrypt', '~> 3.1.7'
+
 
 
 
@@ -29,6 +31,7 @@ group :development, :test do
   gem 'webmock'
   gem 'simplecov'
   gem 'awesome_print'
+
 end
 
 group :development do
