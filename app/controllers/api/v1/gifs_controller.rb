@@ -1,8 +1,7 @@
 class Api::V1::GifsController<ApplicationController
 
   def index
-    giphy_objects = Forecast.new(params[:location])
-    render json: GiphySerializer.new(giphy_objects)
+    render json: GiphySerializer.new(Forecast.new(params[:location]))
   end
 
 end

@@ -27,5 +27,4 @@ class GiphyService
     [giphy_url(@day_1),giphy_url(@day_2),giphy_url(@day_3),giphy_url(@day_4),giphy_url(@day_5)]
   end
 
-
 end

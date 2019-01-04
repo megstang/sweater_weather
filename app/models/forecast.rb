@@ -52,7 +52,8 @@ class Forecast
     end
   end
 
-
-
+  def copyright
+    Time.new.year.to_s
+  end
 
 end
