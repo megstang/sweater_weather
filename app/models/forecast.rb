@@ -38,21 +38,4 @@ class Forecast
     @forecast_info ||= DarkskyService.new(get_coords[:lat],get_coords[:lng]).forecast_data
   end
 
-  def giphy_data
-    @giphy_data ||= GiphyService.new(daily_summaries).giphy_url_array
-  end
-
-  def time_summary_url
-    giphy_data.zip(daily_summaries,daily_times)
-  end
-
-  def giphy_service_objects
-    time_summary_url.map do |data|
-      Gif.new(data)
-    end
-  end
-
-  def copyright
-    Time.new.year.to_s
-  end
 end
