@@ -25,7 +25,13 @@ class Forecast
   def daily_summaries
     daily_weather[:data].map do |hash|
       hash[:summary]
-    end
+    end.take(5)
+  end
+
+  def daily_times
+    daily_weather[:data].map do |hash|
+      hash[:time]
+    end.take(5)
   end
 
   def forecast_data
@@ -33,8 +39,20 @@ class Forecast
   end
 
   def giphy_data
-    @giphy_data ||= GiphyService.new(daily_summaries)
+    @giphy_data ||= GiphyService.new(daily_summaries).giphy_url_array
   end
+
+  def time_summary_url
+    giphy_data.zip(daily_summaries,daily_times)
+  end
+
+  def giphy_service_objects
+    time_summary_url.map do |data|
+      Gif.new(data)
+    end
+  end
+
+
 
 
 end
