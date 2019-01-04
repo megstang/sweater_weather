@@ -17,7 +17,7 @@ class GiphyFacade
     giphy_data.zip(@forecast.daily_summaries,@forecast.daily_times)
   end
 
-  def giphy_service_objects
+  def daily_forecasts
     time_summary_url.map do |data|
       Gif.new(data)
     end

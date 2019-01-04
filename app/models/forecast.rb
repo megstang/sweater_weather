@@ -10,6 +10,10 @@ class Forecast
     @coordinates ||= GeocodeService.new(@location).coords
   end
 
+  def forecast_data
+    @forecast_info ||= DarkskyService.new(get_coords[:lat],get_coords[:lng]).forecast_data
+  end
+
   def current_weather
     forecast_data[:currently]
   end
@@ -34,8 +38,5 @@ class Forecast
     end.take(5)
   end
 
-  def forecast_data
-    @forecast_info ||= DarkskyService.new(get_coords[:lat],get_coords[:lng]).forecast_data
-  end
 
 end

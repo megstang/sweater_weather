@@ -7,11 +7,11 @@ describe 'as a user' do
 
       expect(response).to be_successful
       giphys = JSON.parse(response.body,symbolize_names: true)
-      expect(giphys[:data][:attributes][:giphy_service_objects].length).to eq(5)
-      expect(giphys[:data][:attributes][:giphy_service_objects][0]).to have_key(:time)
-      expect(giphys[:data][:attributes][:giphy_service_objects][0]).to have_key(:summary)
-      expect(giphys[:data][:attributes][:giphy_service_objects][0]).to have_key(:url)
-      expect(giphys[:data][:attributes][:giphy_service_objects][0]).to have_key(:url)
+      expect(giphys[:data][:attributes][:daily_forecasts].length).to eq(5)
+      expect(giphys[:data][:attributes][:daily_forecasts][0]).to have_key(:time)
+      expect(giphys[:data][:attributes][:daily_forecasts][0]).to have_key(:summary)
+      expect(giphys[:data][:attributes][:daily_forecasts][0]).to have_key(:url)
+      expect(giphys[:data][:attributes][:daily_forecasts][0]).to have_key(:url)
       expect(giphys[:data][:attributes][:copyright]).to eq("2019")
     end
   end

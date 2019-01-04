@@ -1,5 +1,5 @@
 class GiphySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :giphy_service_objects,
+  attributes :daily_forecasts,
              :copyright
 end
