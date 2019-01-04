@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       resources :forecast, only: :index do
       end
       resources :users, only: :create do
-      end 
+      end
+      resources :gifs, only: :index do
+      end
     end
   end
 
