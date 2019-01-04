@@ -15,7 +15,7 @@ describe 'making a user api and response' do
     post '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'
 
     expect(response).to be_successful
-    expect(response[:api_key]).to eq(User.last[:api_key])
+    expect(JSON.parse(response.body)["data"]["attributes"]["api_key"]).to eq(User.last[:api_key])
     expect(User.last.email).to eq('whatever@example.com')
   end
 
