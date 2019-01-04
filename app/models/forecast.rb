@@ -22,8 +22,18 @@ class Forecast
     forecast_data[:daily]
   end
 
+  def daily_summaries
+    daily_weather[:data].map do |hash|
+      hash[:summary]
+    end
+  end
+
   def forecast_data
     @forecast_info ||= DarkskyService.new(get_coords[:lat],get_coords[:lng]).forecast_data
+  end
+
+  def giphy_data
+    @giphy_data ||= GiphyService.new(daily_summaries)
   end
 
 
