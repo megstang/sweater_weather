@@ -55,5 +55,4 @@ class Forecast
   def copyright
     Time.new.year.to_s
   end
-
 end
