@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :gifs, only: :index do
       end
       resources :sessions do
+      end
+      resources :favorites, only: :create do
       end 
     end
   end
