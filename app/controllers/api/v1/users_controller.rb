@@ -19,7 +19,7 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def all_params
-    user_params.merge(api_key: token)
+    user_params.merge({api_key: token})
   end
 
   def token
