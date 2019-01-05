@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       end
       resources :gifs, only: :index do
       end
+      resources :sessions do
+      end 
     end
   end
 
