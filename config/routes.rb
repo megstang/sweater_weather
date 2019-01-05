@@ -11,8 +11,8 @@ Rails.application.routes.draw do
       end
       resources :sessions do
       end
-      resources :favorites, only: :create do
-      end 
+      resources :favorites, only: [:create,:index] do
+      end
     end
   end
 
