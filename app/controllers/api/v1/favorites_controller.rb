@@ -8,6 +8,11 @@ class Api::V1::FavoritesController<ApplicationController
     end
   end
 
+  def index
+    user = User.find_by(api_key: params[:api_key])
+    render json: FavoritesSerializer.new(FavoritesFacade.new(user))
+  end
+
   private
 
   def strong_params
