@@ -33,8 +33,9 @@ describe 'as a user' do
     get "/api/v1/favorites?api_key=#{api_key}"
 
     expect(response).to be_successful
-    expect(JSON.parse(response.body)["data"]["type"]).to eq("favorites")
-    #add more tests eventually for the actual output once it's no longer so nested
+    favorites_response = JSON.parse(response.body)["data"]
+    expect(favorites_response["type"]).to eq("favorites")
+    expect(favorites_response["attributes"]["favorites_and_weather"].count).to eq(2)
   end
 
   it 'cant get favorite cities without correct api_key' do
