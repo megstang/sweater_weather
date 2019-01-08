@@ -38,4 +38,15 @@ describe 'as a user' do
 
   end
 
+  it 'can delete favorite cities' do
+    post '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'
+    api_key = User.last.api_key
+    post "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+    post "/api/v1/favorites?location=hershey,pa&api_key=#{api_key}"
+
+    delete "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+
+    expect(response).to be_successful
+  end
+
 end
