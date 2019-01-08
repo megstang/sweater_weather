@@ -11,22 +11,16 @@ class FavoritesFacade
     end
   end
 
-  def description
-    favorites.map do |favorite|
-      Forecast.new(favorite).current_weather
+  def current_weather(favorite)
+    Forecast.new(favorite).current_weather
+  end
+
+  def favorites_and_weather
+    favorites.inject(Hash.new(0)) do |hash, favorite|
+      hash[favorite] = current_weather(favorite)
+      hash
     end
   end
-
-  def favorites_info
-    zip_fav_and_desc.map do |favorite|
-      Favorite.new(favorite)
-    end
-  end
-
-  def zip_fav_and_desc
-    favorites.zip(description)
-  end
-
 
 
 end

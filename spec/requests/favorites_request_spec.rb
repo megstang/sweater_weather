@@ -33,9 +33,42 @@ describe 'as a user' do
     get "/api/v1/favorites?api_key=#{api_key}"
 
     expect(response).to be_successful
-    expect(JSON.parse(response.body)["data"]["type"]).to eq("favorites")
-    #add more tests eventually for the actual output once it's no longer so nested
+    favorites_response = JSON.parse(response.body)["data"]
+    expect(favorites_response["type"]).to eq("favorites")
+    expect(favorites_response["attributes"]["favorites_and_weather"].count).to eq(2)
+  end
 
+  it 'cant get favorite cities without correct api_key' do
+    post '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'
+    api_key = User.last.api_key
+    post "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+    post "/api/v1/favorites?location=hershey,pa&api_key=#{api_key}"
+
+    get "/api/v1/favorites?api_key=12345"
+
+    expect(response.status).to eq(401)
+  end
+
+  it 'can delete favorite cities' do
+    post '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'
+    api_key = User.last.api_key
+    post "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+    post "/api/v1/favorites?location=hershey,pa&api_key=#{api_key}"
+
+    delete "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+
+    expect(response).to be_successful
+  end
+
+  it 'cant delete favorite cities without a good api_key' do
+    post '/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password'
+    api_key = User.last.api_key
+    post "/api/v1/favorites?location=denver,co&api_key=#{api_key}"
+    post "/api/v1/favorites?location=hershey,pa&api_key=#{api_key}"
+
+    delete "/api/v1/favorites?location=denver,co&api_key=12345"
+
+    expect(response.status).to eq(401)
   end
 
 end

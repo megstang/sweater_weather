@@ -11,8 +11,9 @@ Rails.application.routes.draw do
       end
       resources :sessions do
       end
-      resources :favorites, only: [:create,:index] do
+      resources :favorites, only: [:create, :index] do
       end
+      delete '/favorites', to: 'favorites#destroy'
     end
   end
 
