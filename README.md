@@ -8,7 +8,7 @@ This API is built to serve current, hourly, and daily weather information for an
 
 The endpoints that are available are as follows: 
 
-get /api/v1/forecast?location=denver,co
+<h2>get /api/v1/forecast?location=denver,co</h2>
 
 ![forecast](/readme_images/ss-forecast.png)
 
