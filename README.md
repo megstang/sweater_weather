@@ -17,6 +17,7 @@ The endpoints that are available are as follows:
 Both of the following requests return the api_key of the current/registered user
 <h2>post /api/v1/sessions?email=sample@email.com&password=test</h2>
 <h2>post /api/v1/users?email=example@example.com&password=password&password_confirmation=password</h2>
+
  ![alt text](ss-register.png)
  
 
@@ -26,9 +27,11 @@ Both of the following requests return the api_key of the current/registered user
 
 
 <h2>get /api/v1/favorites?api_key=abc123</h2>
+
 ![alt text](ss-get-fav.png)
 
 
 
 <h2>del /api/v1/favorites?location=denver,co&api_key=insert_api_key_here</h2>
+
 ![alt text](ss-del-fav.png)
