@@ -10,7 +10,7 @@ The endpoints that are available are as follows:
 
 get /api/v1/forecast?location=denver,co
 
-![forecast](./readme_images/ss-forecast.png)
+![forecast](readme_images/ss-forecast.png)
 
 GET /api/v1/forecast?location=denver,co
 Content-Type: application/json
