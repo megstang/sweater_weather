@@ -10,7 +10,7 @@ The endpoints that are available are as follows:
 
 get /api/v1/forecast?location=denver,co
 
-![forecast](readme_images/ss-forecast.png)
+![forecast](/readme_images/ss-forecast.png)
 
 GET /api/v1/forecast?location=denver,co
 Content-Type: application/json
@@ -21,4 +21,3 @@ post /api/v1/users?email=sample&password=test&password_confirmation=test
 post /api/v1/sessions?email=sample@email.com&password=test
 post /api/v1/favorites?location=denver,co&api_key=abc123
 get /api/v1/favorites?api_key=abc123
-post /mailers?email=email&location=denver,co
