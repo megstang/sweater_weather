@@ -12,7 +12,7 @@ The endpoints that are available are as follows:
 
 <h2>get /api/v1/forecast?location=denver,co</h2>
 
-![alt text](/readme_images/ss-forecast.png)
+![alt text](ss-forecast.png)
 
 Both of the following requests return the api_key of the current/registered user
 <h2>post /api/v1/sessions?email=sample@email.com&password=test</h2>
